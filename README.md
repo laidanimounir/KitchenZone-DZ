@@ -93,7 +93,7 @@ Außerdem habe ich fehlende Variablen identifiziert und hinzugefügt, die in der
 | Produktanzeige | ✅ Funktioniert |
 | Authentifizierung | 🔄 In Arbeit |
 | Stripe Testzahlungen | 🔄 In Arbeit |
-| Bildupload (Supabase Storage) | 🔄 In Arbeit |
+| Bildupload (Supabase Storage) | ✅ Funktioniert |
 | Row Level Security | 🔄 In Arbeit |
 
 ---
