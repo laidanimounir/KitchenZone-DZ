@@ -21,9 +21,11 @@ export const getURL = () => {
 };
 
 export const keytoUrl = (key?: string) => {
-  return key
-    ? `https://${env.NEXT_PUBLIC_S3_BUCKET}.s3.${env.NEXT_PUBLIC_S3_REGION}.amazonaws.com/${key}`
-    : "https://hiyori-backpack.s3.us-west-2.amazonaws.com/public/bathroom-planning.jpg";
+  if (!key) return "";
+  // If already a full URL (Supabase Storage), return as is
+  if (key.startsWith("http")) return key;
+  // Fallback for old S3 keys
+  return `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/medias/${key}`;
 };
 
 export function formatPrice(price: number | string) {
