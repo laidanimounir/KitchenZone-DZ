@@ -1,45 +1,37 @@
 import type { NavItemWithOptionalChildren } from "@/types";
 
-import { slugify } from "@/lib/utils";
-
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "HIYORI",
-  description: "Ecommerce Application built with NextJS 14",
-  url: "https://hiyori.hugo-coding.com",
-  address: "1600 Amphitheatre Parkway in Mountain View, California",
-  phone: "+1(234)-567-8901",
-  email: "hello@hugo-coding.com",
+  name: "ibro-kitchen",
+  description: "متجر أدوات المطبخ الجزائري",
+  url: "https://ibro-kitchen.dz",
+  address: "الجزائر العاصمة، الجزائر",
+  phone: "+213 776171171",
+  email: "ibro-kitchen@gmail.com",
   mainNav: [
     {
-      title: "Shop",
+      title: "المتجر",
       href: "/shop",
-      description: "All the products we have to offer.",
+      description: "كل منتجاتنا",
       items: [],
     },
     {
-      title: "Our Story",
-      href: "https://github.com/clonglam/HIYORI-master",
-      description: "Our Story.",
+      title: "المجموعات",
+      href: "/collections",
+      description: "تصفح المجموعات",
       items: [],
     },
     {
-      title: "Brands & Designers",
-      href: "https://github.com/clonglam/HIYORI-master",
-      description: "Read our latest blog posts.",
+      title: "العروض",
+      href: "/shop?filter=sale",
+      description: "أفضل العروض",
       items: [],
     },
     {
-      title: "Blog",
-      href: "https://blog.hugo-coding.com",
-      description: "Read our latest blog posts.",
-      items: [],
-    },
-    {
-      title: "Contact",
-      href: "https://hugo-coding.com/#contact",
-      description: "Read our latest blog posts.",
+      title: "تواصل معنا",
+      href: "/contact",
+      description: "تواصل معنا",
       items: [],
     },
   ] satisfies NavItemWithOptionalChildren[],
