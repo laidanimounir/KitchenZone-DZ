@@ -69,7 +69,7 @@
     "drizzle-orm": "^0.29.3",
     "drizzle-zod": "^0.5.1",
     "embla-carousel-react": "^8.0.0-rc21",
-    "framer-motion": "^11.0.6",
+    "framer-motion": "^11.18.2",
     "graphql-codegen": "^0.4.0",
     "husky": "^9.0.11",
     "i": "^0.3.7",
