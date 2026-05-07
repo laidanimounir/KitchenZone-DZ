@@ -151,3 +151,66 @@ src/
 
 Basierend auf dem Open-Source-Projekt von Hugo Lam — lizenziert unter **MIT**.
 Meine Erweiterungen und Anpassungen sind ebenfalls unter MIT veröffentlicht.
+
+
+
+
+
+
+## 🗺️ خارطة العمل — KitchenZone-DZ
+
+### ✅ ما تم اليوم
+
+#### 🔧 إصلاحات
+- `next.config.mjs` — إضافة hostname لـ AWS S3 مؤقتاً ثم حذفه
+- `src/app/(store)/page.tsx` — استبدال صورة hero من S3 بصورة محلية
+
+#### 🎨 تحسينات الـ Navbar
+- `src/components/layouts/Branding.tsx` — تغيير الاسم لـ ibro-kitchen، لون يتكيف مع الـ scroll
+- `src/components/layouts/MainNavbar.tsx` — navbar شفاف يتحول لأبيض عند الـ scroll، إزالة search bar
+- `src/components/layouts/SearchInput.tsx` — تصميم جديد، placeholder عربي
+- `src/components/layouts/SearchOverlay.tsx` — ملف جديد، overlay للبحث
+- `src/components/layouts/NavActions.tsx` — ملف جديد، أيقونات الـ navbar
+- `src/components/layouts/MobileNavbar.tsx` — إضافة أيقونات مفقودة
+- `src/components/layouts/MobileSearchInput.tsx` — تحسين تجربة البحث في الموبايل
+- `src/components/layouts/UserNav.tsx` — تحسين بصري لزر تسجيل الدخول
+
+#### 🎨 تحسينات الـ SideMenu
+- `src/config/site.ts` — تحديث المعلومات والروابط لـ ibro-kitchen بالعربية
+- `src/components/layouts/SocialMedias.tsx` — استبدال روابط GitHub/Twitter بـ Facebook/Instagram
+- `src/components/layouts/side-menu/navItems.ts` — ملف جديد، بيانات الروابط مع الألوان
+- `src/components/layouts/side-menu/SideMenuNavItem.tsx` — ملف جديد، بطاقة الرابط
+- `src/components/layouts/side-menu/SideMenuFooter.tsx` — ملف جديد، معلومات الاتصال
+- `src/components/layouts/side-menu/SideMenu.tsx` — إعادة بناء كاملة
+- `src/components/layouts/side-menu/index.ts` — export المجلد
+
+#### ✨ HeroSection
+- تثبيت `framer-motion`
+- `src/app/(store)/HeroSection.tsx` — ملف جديد، hero section كامل مع:
+  - animation للصورة (fadeIn + scale)
+  - نص عربي يظهر بالتدريج
+  - زر تصفح المنتجات + زر تواصل معنا
+  - إحصائيات تظهر بالتدريج
+
+---
+
+### 📋 خطة الغد
+
+#### الأولوية 1 — Landing Page
+- [ ] `FeaturedProductsCards` — تعريب النصوص + whileInView animation
+- [ ] `ProductSubCollectionsCircles` — تحسين بصري
+- [ ] `CollectionGrid` — إصلاح صور Supabase (خطأ 400) + تعريب النصوص
+- [ ] `DifferentFeatureCards` — تعريب + تحسين بصري + animation
+- [ ] `LessIsMoreCard` — تعريب النصوص
+
+#### الأولوية 2 — صفحة المنتجات
+- [ ] تحسين بصري لبطاقة المنتج `ProductCard`
+- [ ] تحسين صفحة المنتج الفردي
+
+#### الأولوية 3 — Footer
+- [ ] `MainFooter.tsx` — تعريب وتحديث المعلومات
+
+---
+
+### 🎯 النتيجة النهائية المستهدفة
+متجر إلكتروني احترافي باللغة العربية لـ ibro-kitchen — landing page جذابة مع animations، navbar شفاف، تجربة مستخدم سلسة على Desktop والموبايل.
