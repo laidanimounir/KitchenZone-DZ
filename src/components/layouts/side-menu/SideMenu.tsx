@@ -1,17 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { siteConfig } from "@/config/site";
-import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Icons } from "../icons";
 import Branding from "../Branding";
-import SocialMedias from "../SocialMedias";
+import SideMenuNavItem from "./SideMenuNavItem";
+import SideMenuFooter from "./SideMenuFooter";
+import { navItems } from "./navItems";
 
 export function SideMenu() {
   return (
@@ -23,43 +18,23 @@ export function SideMenu() {
       </SheetTrigger>
 
       <SheetContent
-        side="left"
-        className="w-full md:max-w-lg border-r-0 bg-white"
-        closeButtonClassName="w-6 h-6 md:w-8 md:h-8 top-6 left-6"
+        side="right"
+        className="w-full md:max-w-sm border-0 bg-zinc-50 p-0"
+        closeButtonClassName="top-5 right-5 z-50"
       >
-        <div className="flex flex-col h-full px-10 md:px-16 pt-24 pb-12">
+        <div className="flex flex-col h-full">
+          <div className="px-6 pt-16 pb-6 bg-white border-b border-zinc-100">
+            <Branding className="text-xl font-black text-zinc-900" />
+            <p className="text-xs text-zinc-400 mt-1">متجر أدوات المطبخ</p>
+          </div>
 
-          <nav className="flex flex-col gap-y-1 flex-1">
-            {siteConfig.mainNav.map(({ title, href }, index) => (
-              <Link
-                key={index}
-                href={href}
-                className="group flex items-center justify-between py-4 border-b border-zinc-100 text-xl md:text-2xl font-medium text-zinc-800 hover:text-zinc-500 transition-colors duration-200"
-              >
-                {title}
-                <Icons.chevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-              </Link>
+          <nav className="flex flex-col gap-y-3 px-4 py-6 flex-1">
+            {navItems.map((item, index) => (
+              <SideMenuNavItem key={index} {...item} />
             ))}
           </nav>
 
-          <SheetFooter className="flex flex-col items-start space-x-0 mt-auto gap-y-4">
-            <Branding className="text-2xl md:text-3xl font-black" />
-            <div className="text-zinc-400 text-xs md:text-sm leading-relaxed">
-              <p>{siteConfig.address}</p>
-              <p className="mt-1">
-                <span>{siteConfig.phone}</span>
-                {` · `}
-                <Link
-                  className="hover:text-zinc-700 transition-colors"
-                  href={`mailto:${siteConfig.email}`}
-                >
-                  {siteConfig.email}
-                </Link>
-              </p>
-            </div>
-            <SocialMedias />
-          </SheetFooter>
-
+          <SideMenuFooter />
         </div>
       </SheetContent>
     </Sheet>
