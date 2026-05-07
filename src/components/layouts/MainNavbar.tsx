@@ -15,7 +15,7 @@ interface MainNavbarProps {
 
 async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
   return (
-    <nav className="bg-background/95 fixed z-50 w-full">
+    <nav className="bg-white/95 border-b border-amber-100 fixed z-50 w-full shadow-sm">
       <div
         className={cn(
           adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container",
