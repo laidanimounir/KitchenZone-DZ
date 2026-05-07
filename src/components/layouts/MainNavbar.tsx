@@ -15,14 +15,13 @@ interface MainNavbarProps {
 
 async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
   return (
-    <nav className="bg-white/95 border-b border-amber-100 fixed z-50 w-full shadow-sm">
+    <nav className="fixed z-50 w-full bg-white/80 backdrop-blur-md border-b border-zinc-100">
       <div
         className={cn(
           adminLayout ? "mx-auto px-[3rem] max-w-[2500px] py-3" : "container",
         )}
       >
-        <div className="hidden md:flex gap-x-8 justify-between items-center">
-          {/* Menu & branding */}
+        <div className="hidden md:flex gap-x-8 justify-between items-center h-[64px]">
           <div className="flex gap-x-3 items-center">
             <SideMenu />
             <Branding />
@@ -36,14 +35,13 @@ async function MainNavbar({ adminLayout = false }: MainNavbarProps) {
             </Suspense>
           )}
 
-          {/* Nav Action */}
-          <div className="flex gap-x-5 relative items-center">
+          <div className="flex gap-x-6 relative items-center">
             <Suspense>
               <UserNav />
             </Suspense>
 
-            <Link href={"/wish-list"}>
-              <Icons.heart className="w-4 h-4" aria-label="wishlist" />
+            <Link href={"/wish-list"} className="text-zinc-700 hover:text-zinc-900 transition-colors">
+              <Icons.heart className="w-5 h-5" aria-label="wishlist" />
             </Link>
 
             <Suspense fallback={<CartLink productCount={0} />}>
