@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import CartNav from "../../features/carts/components/CartNav";
 import Branding from "./Branding";
 import MobileSearchInput from "./MobileSearchInput";
-import { SideMenu } from "./SideMenu";
+import { SideMenu } from "./side-menu/SideMenu";
 import CartLink from "../../features/carts/components/CartLink";
 import { UserNav } from "@/features/auth";
 import { Icons } from "./icons";

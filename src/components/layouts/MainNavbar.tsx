@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Icons } from "./icons";
 import Branding from "./Branding";
 import MobileNavbar from "./MobileNavbar";
-import { SideMenu } from "./SideMenu";
+import { SideMenu } from "./side-menu/SideMenu";
 import SearchOverlay from "./SearchOverlay";
 import NavActions from "./NavActions";
 
