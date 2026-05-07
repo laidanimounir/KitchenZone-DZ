@@ -113,10 +113,10 @@ function UserNav() {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-        <Link href="/sign-in" className="flex items-center text-foreground">
-          <Icons.user className="h-4 w-4 mr-3" />
-          <p className="text-sm">Sign in or Sign up</p>
-        </Link>
+       <Link href="/sign-in" className="flex items-center gap-2 text-amber-900 hover:text-amber-700 transition-colors">
+  <Icons.user className="h-4 w-4" />
+  <p className="text-sm font-medium">تسجيل الدخول</p>
+</Link>
       )}
     </>
   );
