@@ -3,7 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import * as motion from "framer-motion/client";
+import { motion } from "framer-motion";
 
 const stats = [
   { value: 500, label: "منتج متوفر" },
@@ -26,7 +26,6 @@ function AnimatedCounter({ to }: { to: number }) {
 export default function HeroSection() {
   return (
     <section className="w-full h-screen mx-auto flex justify-center" id="hero">
-      {/* الصورة */}
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -44,11 +43,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
-      {/* المحتوى */}
       <div className="container absolute py-8 h-screen w-full">
         <div className="flex flex-col justify-center z-30 h-full gap-y-6">
 
-          {/* الشعار الصغير */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +55,6 @@ export default function HeroSection() {
             ibro-kitchen — الجزائر
           </motion.p>
 
-          {/* العنوان */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,7 +66,6 @@ export default function HeroSection() {
             <span className="text-orange-400">لكل بيت جزائري</span>
           </motion.h1>
 
-          {/* الأزرار */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,7 +78,7 @@ export default function HeroSection() {
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "border-2 border-white text-white rounded-full px-8 py-3 md:px-12 md:py-6 hover:text-zinc-800 hover:bg-white transition-all",
               )}
-            >
+            <a>
               تصفح المنتجات
             </a>
             <Link
@@ -97,7 +92,6 @@ export default function HeroSection() {
             </Link>
           </motion.div>
 
-          {/* الإحصائيات */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
