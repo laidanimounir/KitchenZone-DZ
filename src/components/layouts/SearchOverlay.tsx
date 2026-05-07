@@ -39,7 +39,7 @@ function SearchOverlay({ open, onClose }: SearchOverlayProps) {
               onClick={onClose}
               className="text-zinc-400 hover:text-zinc-700 transition-colors p-2"
             >
-              <Icons.x className="w-5 h-5" />
+              <Icons.close className="w-5 h-5" />
             </button>
           </div>
         </div>

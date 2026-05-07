@@ -1,14 +1,12 @@
 "use client";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { Suspense, useState, useEffect } from "react";
-import { CartLink, CartNav } from "../../features/carts";
-import { UserNav } from "@/features/auth";
+import { useState, useEffect } from "react";
 import { Icons } from "./icons";
 import Branding from "./Branding";
 import MobileNavbar from "./MobileNavbar";
 import { SideMenu } from "./SideMenu";
 import SearchOverlay from "./SearchOverlay";
+import NavActions from "./NavActions";
 
 interface MainNavbarProps {
   adminLayout?: boolean;
@@ -59,21 +57,7 @@ function MainNavbar({ adminLayout = false }: MainNavbarProps) {
                   <Icons.search className="w-5 h-5" />
                 </button>
               )}
-
-              <Suspense>
-                <UserNav />
-              </Suspense>
-
-              <Link
-                href="/wish-list"
-                className="hover:opacity-70 transition-opacity"
-              >
-                <Icons.heart className="w-5 h-5" aria-label="wishlist" />
-              </Link>
-
-              <Suspense fallback={<CartLink productCount={0} />}>
-                {!adminLayout && <CartNav />}
-              </Suspense>
+              <NavActions adminLayout={adminLayout} />
             </div>
           </div>
 

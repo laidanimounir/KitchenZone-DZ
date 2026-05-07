@@ -9,7 +9,7 @@ function Branding({ className, scrolled }: Props) {
       href="/"
       className={cn(
         "text-xl font-black tracking-tight uppercase transition-colors duration-300",
-        scrolled ? "text-zinc-900" : "text-white",
+        scrolled ? "text-zinc-900" : "text-black",
         className,
       )}
     >

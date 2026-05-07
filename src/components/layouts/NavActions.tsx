@@ -7,8 +7,7 @@ import Link from "next/link";
 interface NavActionsProps {
   adminLayout?: boolean;
 }
-
-async function NavActions({ adminLayout = false }: NavActionsProps) {
+ function NavActions({ adminLayout = false }: NavActionsProps) {
   return (
     <>
       <Suspense>
