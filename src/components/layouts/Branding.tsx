@@ -9,12 +9,12 @@ function Branding({ className }: Props) {
     <Link
       href="/"
       className={cn(
-        "text-2xl font-bold align-middle tracking-tight",
-        "text-amber-900 hover:text-amber-700 transition-colors duration-200",
+        "text-xl font-black tracking-tight uppercase",
+        "text-zinc-900 hover:text-zinc-600 transition-colors duration-200",
         className
       )}
     >
-       ibro-kitchen 
+      ibro-kitchen
     </Link>
   );
 }
