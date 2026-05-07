@@ -113,9 +113,8 @@ function UserNav() {
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (
-       <Link href="/sign-in" className="flex items-center gap-2 text-amber-900 hover:text-amber-700 transition-colors">
-  <Icons.user className="h-4 w-4" />
-  <p className="text-sm font-medium">تسجيل الدخول</p>
+      <Link href="/sign-in" className="flex items-center text-zinc-700 hover:text-zinc-900 transition-colors">
+  <Icons.user className="h-5 w-5" />
 </Link>
       )}
     </>
