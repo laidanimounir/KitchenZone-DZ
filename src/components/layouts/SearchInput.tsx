@@ -58,11 +58,8 @@ function SearchInput() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="Find your Favour Furniture and Bring them to Home"
-                  className={cn(
-                    isFocused ? "pl-6" : "pl-10",
-                    "rounded-full transition-all duration-500",
-                  )}
+                  placeholder="ابحث عن المنتج"
+              className="relative bg-amber-50/80 p-4 backdrop-blur rounded-full flex-1 border border-amber-200"
                   onFocus={() => setIsFocused(true)}
                   onBlur={() => setIsFocused(false)}
                 />
