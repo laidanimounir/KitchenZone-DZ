@@ -89,7 +89,9 @@ export default async function Home() {
         ) : null}
 
         {data.products && data.products.edges ? (
-          <FeaturedProductsCards products={data.products.edges} />
+         <section id="featured">
+  <FeaturedProductsCards products={data.products.edges} />
+</section>
         ) : null}
 
         <CollectionGrid />
