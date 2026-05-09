@@ -82,15 +82,14 @@ export default async function Home() {
     <main>
       <HeroSection />
 
+   
+      <CollectionsSection collections={data.collectionScrollCards.edges} />
+
       <Shell>
         {data.products && data.products.edges ? (
-        <CollectionsSection collections={data.collectionScrollCards.edges} />
-        ) : null}
-
-        {data.products && data.products.edges ? (
-         <section id="featured">
-  <FeaturedProductsCards products={data.products.edges} />
-</section>
+          <section id="featured">
+            <FeaturedProductsCards products={data.products.edges} />
+          </section>
         ) : null}
 
         <CollectionGrid />
@@ -103,51 +102,12 @@ export default async function Home() {
   );
 }
 
-
 interface FeaturedProductsCards {
   products: { node: DocumentType<typeof ProductCardFragment> }[];
 }
 
 interface CollectionsCardsProps {
   collections: { node: DocumentType<typeof CollectionCardFragment> }[];
-}
-
-function ProductSubCollectionsCircles({ collections }: CollectionsCardsProps) {
-  return (
-    <section className="flex justify-start items-center gap-x-10 overflow-auto py-12">
-      {collections.map(({ node }) => (
-        <Link
-          href={`/collections/${node.slug}`}
-          key={`collection_circle_${node.id}`}
-        >
-          <div
-            className={cn(
-              "relative bg-secondary rounded-full flex justify-center items-center",
-              "w-[280px] h-[280px]",
-              // "md:w-[320px] md:h-[320px]"
-              // "lg:w-[360px] lg:h-[360px]"
-            )}
-          >
-            <Image
-              src={keytoUrl(node.featuredImage.key)}
-              alt={node.featuredImage.alt}
-              width={320}
-              height={320}
-              className={cn(
-                "object-center object-cover hover:scale-105 transition-all duration-500",
-                "w-[240px] h-[240px]",
-                // "md:w-[280px] md:h-[280px]",
-                // "lg:w-[320px] lg:h-[320px]"
-              )}
-            />
-          </div>
-          <p className="text-black text-center mt-3 font-semibold">
-            {node.label}
-          </p>
-        </Link>
-      ))}
-    </section>
-  );
 }
 
 interface FeaturedProductsCardsProps {
@@ -195,7 +155,7 @@ function CollectionGrid() {
         />
         <div className="bg-zinc-800/20 flex justify-center items-center flex-col absolute w-full h-full top-0 left-0 text-white">
           <p className="text-5xl mb-3">Bath Room</p>
-          <p className=" font-light mb-8">Designed for enhanchment</p>
+          <p className="font-light mb-8">Designed for enhanchment</p>
           <Link
             className={cn(buttonVariants({ size: "lg" }), "text-xl py-8 px-10")}
             href={"/collections/bathroom"}
@@ -230,67 +190,36 @@ function CollectionGrid() {
   );
 }
 
-function CollectionRectCard({ collections }: CollectionsCardsProps) {
-  return (
-    <ScrollArea className="whitespace-nowrap relative container">
-      <div className="flex w-max space-x-10 py-5 overflow-auto">
-        <Suspense
-          fallback={[...Array(6)].map((_, index) => (
-            <CollectionsCardSkeleton key={`Collections-sekelton-${index}`} />
-          ))}
-        >
-          {collections.map(({ node }) => (
-            <CollectionsCard collection={node} key={node.id} />
-          ))}
-        </Suspense>
-      </div>
-      <ScrollBar orientation="horizontal" />
-    </ScrollArea>
-  );
-}
-
 function DifferentFeatureCards() {
   const features = [
     {
       Icon: Icons.cart,
       title: "Responsible Design",
-      description:
-        "Designed with integrity and durably crafted for everyday use.",
+      description: "Designed with integrity and durably crafted for everyday use.",
     },
     {
       Icon: Icons.tag,
       title: "Transparent Pricing",
-      description:
-        "We believe in accessible pricing and full transparency. Our pricing model is an open book.",
+      description: "We believe in accessible pricing and full transparency. Our pricing model is an open book.",
     },
     {
       Icon: Icons.package,
       title: "Sustainable Sourcing",
-      description:
-        "We only partner with people who put the earth, and its people, first.",
+      description: "We only partner with people who put the earth, and its people, first.",
     },
     {
       Icon: Icons.award,
       title: "Giving Back",
-      description:
-        "Thanks to Mealshare, every purchase directly donates a meal to a youth in need.",
+      description: "Thanks to Mealshare, every purchase directly donates a meal to a youth in need.",
     },
   ];
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-5 gap-y-8 gap-x-5 md:gap-x-12 mx-auto">
       {features.map(({ Icon, title, description }, index) => (
-        <div
-          className="text-center  max-w-[18rem]"
-          key={`FeatureCards_${index}`}
-        >
+        <div className="text-center max-w-[18rem]" key={`FeatureCards_${index}`}>
           <div className="flex justify-center items-center p-5">
-            <Icon
-              width={45}
-              height={45}
-              className="mb-5 text-zinc-400 font-light"
-            />
+            <Icon width={45} height={45} className="mb-5 text-zinc-400 font-light" />
           </div>
-
           <h4 className="text-xl font-serif font-extralight mb-3">{title}</h4>
           <p className="text-lg text-muted-foreground">{description}</p>
         </div>
@@ -310,22 +239,15 @@ function LessIsMoreCard() {
           className="object-cover object-center"
         />
       </div>
-
       <div className="col-span-12 md:col-span-4 pb-6 md:py-20 px-6 md:px-16">
         <h2 className="text-xl md:text-3xl font-semibold mb-3">
           Less is More. Minimal.
         </h2>
         <p className="text-xs leading-[1.5] md:text-lg tracking-tight mb-5 md:mb-12 text-left max-w-md">
           We believe no one should have to choose between the quality they want,
-          and the price they can afford. That’s why we make sure our products
-          stand up to only the highest quality and sustainability standards -
-          and produce them in a way that keeps great design affordable for
-          everyone.
+          and the price they can afford.
         </p>
-        <Link
-          href="/shop"
-          className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}
-        >
+        <Link href="/shop" className={cn(buttonVariants(), "rounded-full text-xs md:text-md")}>
           Shop now
         </Link>
       </div>

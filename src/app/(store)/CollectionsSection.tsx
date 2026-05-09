@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { keytoUrl } from "@/lib/utils";
 import { DocumentType } from "@/gql";
 import { CollectionCardFragment } from "@/features/collections";
@@ -24,13 +24,9 @@ function CollectionCard({ node }: { node: any }) {
         fill
         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
       />
-      {/* overlay دائم */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-      {/* overlay hover */}
       <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/10 transition-all duration-500" />
-      {/* border hover */}
       <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-orange-400 transition-all duration-300" />
-      {/* النص */}
       <div className="absolute bottom-0 right-0 left-0 p-5">
         <p className="text-white font-bold text-lg group-hover:text-orange-400 transition-colors duration-300 text-right">
           {node.label}
@@ -54,7 +50,7 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
     <section
       ref={ref}
       id="collections"
-      className="py-24 overflow-hidden bg-[#0f0f0f]"
+      className="py-24 overflow-hidden bg-[#0f0f0f] w-full"
       dir="rtl"
     >
       {/* العنوان */}
@@ -70,7 +66,6 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
         <h2 className="text-3xl md:text-5xl font-extrabold text-white">
           اكتشف أصنافنا
         </h2>
-        {/* خط برتقالي */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : {}}
@@ -88,16 +83,18 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {/* fade يسار */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
-        {/* fade يمين */}
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0f0f0f] to-transparent z-10 pointer-events-none" />
 
         <div
-          className="flex gap-6"
+          className="flex gap-6 px-6"
           style={{
-            animation: paused ? "none" : "marquee 30s linear infinite",
             width: "max-content",
+            animationName: "marquee",
+            animationDuration: "25s",
+            animationTimingFunction: "linear",
+            animationIterationCount: "infinite",
+            animationPlayState: paused ? "paused" : "running",
           }}
         >
           {doubled.map(({ node }, index) => (
@@ -105,13 +102,6 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
           ))}
         </div>
       </motion.div>
-
-      <style jsx>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </section>
   );
 }
