@@ -4,6 +4,7 @@ import { Shell } from "@/components/layouts/Shell";
 import { buttonVariants } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import HeroSection from "./HeroSection";
+import CollectionsSection from "./CollectionsSection";
 import {
   CollectionCardFragment,
   CollectionsCard,
@@ -83,9 +84,7 @@ export default async function Home() {
 
       <Shell>
         {data.products && data.products.edges ? (
-          <ProductSubCollectionsCircles
-            collections={data.collectionScrollCards.edges}
-          />
+        <CollectionsSection collections={data.collectionScrollCards.edges} />
         ) : null}
 
         {data.products && data.products.edges ? (
