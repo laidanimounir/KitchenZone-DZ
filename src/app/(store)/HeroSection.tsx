@@ -53,7 +53,7 @@ export default function HeroSection() {
       id="hero"
       dir="rtl"
     >
-      {/* الصورة: Reveal من المركز */}
+      {/* الصورة*/}
       <motion.div
         className="absolute inset-0 z-0"
         initial={{ clipPath: "inset(50% 50% 50% 50% round 8px)" }}
@@ -82,7 +82,7 @@ export default function HeroSection() {
         >
           <span className="w-8 h-px bg-orange-400" />
           <span className="text-orange-400 text-sm tracking-widest uppercase font-medium">
-            ibro-kitchen — الجزائر
+            ibro-kitchen — فرع الجزائر
           </span>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 1.6 }}
           className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-3"
         >
-          أدوات المطبخ
+        أدوات المطبخ الكهربائية
         </motion.h1>
 
         <motion.h2
