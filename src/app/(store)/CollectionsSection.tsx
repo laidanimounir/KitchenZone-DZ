@@ -53,7 +53,7 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
       className="relative py-24 overflow-hidden w-full"
       dir="rtl"
     >
-      {/* صورة الخشب في الخلفية */}
+   
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/wood-texture.png"
@@ -61,7 +61,7 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
           fill
           className="object-cover object-center"
         />
-        {/* overlay فاتح حتى البطاقات تبرز */}
+   
         <div className="absolute inset-0 bg-white/70" />
       </div>
 
@@ -76,7 +76,7 @@ export default function CollectionsSection({ collections }: CollectionsSectionPr
           تصفح حسب الصنف
         </p>
         <h2 className="text-3xl md:text-5xl font-extrabold text-zinc-900">
-          اكتشف أصنافنا
+         الأصناف
         </h2>
         <motion.div
           initial={{ scaleX: 0 }}
